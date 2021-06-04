@@ -41,7 +41,7 @@
             <th scope="col">Quantity</th>
             <th scope="col">OrigAmt</th>
                         
-                @if (User.IsInRole("supplier") || User.IsInRole("admin"))
+                @if (User.IsInRole("supplier"))
             {
                 <th scope="col">Action</th>
             }
@@ -67,7 +67,7 @@
                 <td>@String.Format("{0:f}", row.OrigAmt)</td>
                 <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
                                 
-                    @if (User.IsInRole("supplier") || User.IsInRole("admin"))
+                    @if (User.IsInRole("supplier"))
                 {
                     <td>
                         <a asp-controller="Menu"
