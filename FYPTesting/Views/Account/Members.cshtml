@@ -1,0 +1,68 @@
+@section MoreScripts {
+    <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#jsMembersTable').DataTable({
+                ordering: false,
+                paging: true,
+                searching: false,
+                info: false,
+                lengthChange: false,
+                pageLength: 5
+            });
+        });
+    </script>
+}
+
+@model List<AdminLogin>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-@TempData["MsgType"]">
+        @TempData["Message"]
+    </div>
+}
+
+
+<table id="jsMembersTable" class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Last Login</th>
+            <!--@if (User.IsInRole("admin"))
+    {
+        <th scope="col">Action</th>
+    }
+            -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AdminLogin member in Model)
+        {
+            <tr>
+                <td>@member.UserId</td>
+                <td>@member.FullName</td>
+                <td>@member.Email</td>
+                <td>@member.UserRole</td>
+                <td>@String.Format("{0:yyyy-MM-dd hh:mm:ss}", member.LastLogin)</td>
+                <!-- @if (User.IsInRole("admin"))
+                {
+                    <td>
+                        <a asp-controller="Members"
+                           asp-action="Delete"
+                           asp-route-id="@member.UserId"
+                           onclick="return confirm('Delete Members <@member.UserId>')">
+                            Delete
+                        </a>
+                        </td>
+                        }
+                -->
+            </tr>
+        }
+    </tbody>
+</table>

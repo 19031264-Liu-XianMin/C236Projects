@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section MoreScripts {
+    <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+         $('#jsUsersTable').DataTable({
+            ordering: true,
+            paging: true,
+            searching: true
+         });
+      });
+    </script>
+}
+
+@model List<Menu>;
+
+<h2>Cadets</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-@TempData["MsgType"]">
+        @TempData["Message"]
+    </div>
+}
+
+<table id="jsUsersTable" class="table">
+    <thead>
+        <tr>
+            <th scope="col">Status</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Revise Due-Date</th>
+            <th scope="col">PO No.</th>
+            <th scope="col">PR No.</th>
+            <th scope="col">Supplier Name</th>
+            <th scope="col">Payment Terms</th>
+            <th scope="col">Part No.</th>
+            <th scope="col">Description</th>
+            <th scope="col">Currency</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Orig. Amt.</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Menu cdt in Model)
+        {
+        <tr>
+            <td>@cdt.Status</td>
+            <td>@cdt.OrderDate</td>
+            <td>@cdt.DueDate</td>
+            <td>@cdt.ReviseDueDate</td>
+            <td>@cdt.PONo</td>
+            <td>@cdt.PRNo</td>
+            <td>@cdt.SupplierName</td>
+            <td>@cdt.PaymentTerms</td>
+            <td>@cdt.PartNo</td>
+            <td>@cdt.Description</td>
+            <td>@cdt.Currency</td>
+            <td>@cdt.Quantity</td>
+            <td>@cdt.OrigAmt</td>
+            <td>
+                <a asp-controller="Menu"
+                   asp-action="EditMenu"
+                   asp-route-id="@cdt.Status">Edit</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

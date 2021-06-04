@@ -1,0 +1,48 @@
+﻿@model List<dynamic>
+
+<h2>WeeJazz Stock Records </h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-@TempData["MsgType"]">
+        @TempData["Message"]
+    </div>
+}
+
+<div>
+    <table id="tblPerform" class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Available</th>
+                <th>Reorder</th>
+                <th>Selling Price</th>
+                <th>Cost Price</th>
+                <th>Launched In</th>
+                <th>Action</th>
+                <th>PCode</th>
+            </tr>
+        </thead>
+
+        @foreach (dynamic row in Model)
+        {
+            <tr>
+                <td>@row.StockNo</td>
+                <td>@row.ItemDesc</td>
+                <td>@row.CatTitle</td>
+                <td>@row.QtyAvailable</td>
+                <td>@row.ReOrderQty</td>
+                <td>@String.Format("{0:c}", row.SellPrice)</td>
+                <td>@String.Format("{0:c}", row.CostPrice)</td>
+                <td>@String.Format("{0:yyyy-MM-dd HH:mm}", row.Launched)</td>
+                <td><a asp-controller="Stock" asp-action="Update" asp-route-id="@row.StockNo">Change</a> </td>
+                <td>@row.PCode</td>
+
+            </tr>
+        }
+
+    </table>
+
+</div>

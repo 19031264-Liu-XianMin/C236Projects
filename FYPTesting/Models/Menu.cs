@@ -1,0 +1,59 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace FYPTesting.Models
+{
+    public class Menu
+    {
+        [Required(ErrorMessage = "Please enter Number")]
+        public int Number { get; set; }
+
+        [Required(ErrorMessage = "Please enter Date/Time")]
+        [DataType(DataType.DateTime)]
+        public DateTime OrderDate { get; set; }
+
+        [Required(ErrorMessage = "Please enter Date/Time")]
+        [DataType(DataType.DateTime)]
+        public DateTime DueDate { get; set; }
+
+        [Required(ErrorMessage = "Please enter Date/Time")]
+        [DataType(DataType.DateTime)]
+        public DateTime RevisedDelDate { get; set; }
+
+        [Required(ErrorMessage = "Please enter PO No")]
+        [StringLength(11, MinimumLength = 1, ErrorMessage = "PO No 1-11 chars")]
+        public String PONo { get; set; }
+
+        [Required(ErrorMessage = "Please enter PR No")]
+        [StringLength(11, MinimumLength = 1, ErrorMessage = "PR No 1-11 chars")]
+        public String PRNo { get; set; }
+
+        [Required(ErrorMessage = "Please enter Supplier Name")]
+        [StringLength(200, MinimumLength = 1, ErrorMessage = "Supplier Name 1-200 chars")]
+        public string SupplierName { get; set; }
+
+        [Required(ErrorMessage = "Please enter Payment Terms")]
+        [StringLength(10, MinimumLength = 1, ErrorMessage = "Payment Terms 1-10 chars")]
+        public string PaymentTerms { get; set; }
+
+        [Required(ErrorMessage = "Please enter Part No")]
+        public String PartNo { get; set; }
+
+        [Required(ErrorMessage = "Please enter Description")]
+        public String Description { get; set; }
+
+        [Required(ErrorMessage = "Please enter Currency")]
+        public string Currency { get; set; }
+
+        [Required(ErrorMessage = "Please enter Quantity No")]
+        [Range(0.000, 9999999.000, ErrorMessage = "0-9999999")]
+        public double Quantity { get; set; }
+
+        [Required(ErrorMessage = "Please enter Original Amount")]
+        [Range(0.00, 9999999.00, ErrorMessage = "0-9999999 marks")]
+        public double OrigAmt { get; set; }
+
+
+    }
+}

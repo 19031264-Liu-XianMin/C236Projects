@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Provide Consultation</title>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <form action="~/Consultation/Confirm" method="post">
+
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-4">
+                <h2>Be a Consultant</h2>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="StaffName">Staff Name :</label>
+            <div class="col-sm-4">
+                <input type="text" name="StaffName" id="StaffName" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="Email">Email ID :</label>
+            <div class="col-sm-4">
+                <input type="text" name="Email" id="Email" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="AcadPosition">Position :</label>
+            <div class="col-sm-4">
+                <select class="form-control" name="AcadPosition" id="AcadPosition">
+                    <option value="">-- SELECT --</option>
+                    <option value="Professor">Professor</option>
+                    <option value="Lecturer">Lecturer</option>
+                    <option value="Adjunct">Adjunct</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="StartDate">Start Date :</label>
+            <div class="col-sm-4">
+                <input type="text" name="StartDate" id="StartDate"
+                       placeholder="YYYY-MM-DD" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="EndDate">End Date :</label>
+            <div class="col-sm-4">
+                <input type="text" name="EndDate" id="EndDate"
+                       placeholder="YYYY-MM-DD" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="control-label col-sm-5">
+                <label for="Agree" class="form-check-label">
+                    <input type="checkbox" name="Agree" id="Agree" value="yes" />
+                    I agree to the Terms and Conditions
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-4">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
+        </div>
+
+
+        @if (ViewData["Message"] != null)
+        {
+            <div class="form-group row">
+                <div>
+                    @ViewData["Message"]
+                </div>
+            </div>
+        }
+
+    </form>
+
+</body>
+</html>
+// 19031264 Liu Xian Min

@@ -1,0 +1,93 @@
+@model AdminLogin
+
+<form asp-controller="Account"
+      asp-action="Create"
+      method="post">
+
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-4">
+            <h2>Create an Account</h2>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="FullName">Full Name :</label>
+        <div class="col-sm-4">
+            <input type="text" asp-for="FullName" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="Email">Email ID :</label>
+        <div class="col-sm-4">
+            <input type="text" asp-for="Email" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="UserId">User ID :</label>
+        <div class="col-sm-4">
+            <input type="text" asp-for="UserId" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="UserPw">Password :</label>
+        <div class="col-sm-4">
+            <input type="password" asp-for="UserPw" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+            <span asp-validation-for="UserPw" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="UserPw2">Confirm :</label>
+        <div class="col-sm-4">
+            <input type="password" asp-for="UserPw2" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+            <span asp-validation-for="UserPw2" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="UserRole">Role :</label>
+        <div class="col-sm-4">
+            <select asp-for="UserRole" class="form-control">
+                <option value="">-- Select Role --</option>
+                <option value="admin">Admin</option>
+                <option value="supplier">Supplier</option>
+                <option value="purchaser">Purchaser</option>
+                <option value="salesman">Sales Man</option>
+                <!-- <option value="member">Member</option> -->
+            </select>     
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-6">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </div>
+
+    @if (ViewData["Message"] != null)
+    {
+        <div class="form-group row">
+            <div class="alert alert-@ViewData["MsgType"]">
+                <text>@ViewData["Message"]</text>
+            </div>
+        </div>
+    }
+
+</form>
+
