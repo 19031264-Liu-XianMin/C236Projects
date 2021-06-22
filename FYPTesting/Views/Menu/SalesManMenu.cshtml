@@ -32,15 +32,15 @@
             <th scope="col">Due Date</th>
             <th scope="col">Revised Del-Date</th>
             <th scope="col">PO No.</th>
-            <th scope="col">PR No.</th>
-            <!-- <th scope="col">Supplier Name</th> -->
+            <!-- <th scope="col">PR No.</th> -->
+            <th scope="col">Supplier Name</th>
             <!-- <th scope="col">Payment Terms</th> -->
             <th scope="col">Part No.</th>
             <th scope="col">Description</th>
             <th scope="col">Currency</th>
             <th scope="col">Quantity</th>
             <th scope="col">OrigAmt</th>
-            @if (User.IsInRole("supplier"))
+            @if (User.IsInRole("salesman"))
             {
                 <th scope="col">Action</th>
             }
