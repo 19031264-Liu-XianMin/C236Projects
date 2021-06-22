@@ -65,7 +65,7 @@
                 <td>@String.Format("{0:f}", row.OrigAmt)</td>
                 <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
 
-                @if (User.IsInRole("supplier"))
+                @if (User.IsInRole("salesman"))
                 {
                     <td>
                         <a asp-controller="Menu"
