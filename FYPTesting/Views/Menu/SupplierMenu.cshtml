@@ -39,9 +39,10 @@
             <th scope="col">Revised Del-Date</th>
             <th scope="col">Currency</th>
             <th scope="col">Quantity</th>
-            <!-- <th scope="col"> UOM </th> -->
-            <!-- <th scope="col"> Unit Price </th> -->
+            <!-- <th scope="col">UOM </th> -->
+            <!-- <th scope ="col"> Unit Price </th> -->
             <th scope="col">OrigAmt</th>
+
             @if (User.IsInRole("supplier"))
             {
             <th scope="col">Action</th>
@@ -55,19 +56,20 @@
         {
         <tr>
             <td>@row.Number</td>
-            <td>@String.Format("{0:dd-MM-yyyy}", row.OrderDate)</td>
-            <td>@String.Format("{0:dd-MM-yyyy}", row.DueDate)</td>
-            <td>@String.Format("{0:dd-MM-yyyy}", row.RevisedDelDate)</td>
             <td>@row.PONo</td>
-            <!-- <td>@row.TSHCMPONO</td> -->
+            <td>@String.Format("{0:dd-MM-yyyy}", row.OrderDate)</td>
+            <!-- <td>@row.PaymentTerms</td> -->
+            <!-- <td>@row.JobNum</td> -->
+            <!-- <td>@row.Purchaser</td> -->
+            <!-- <td>@row.TSHPONO</td> -->
             <td>@row.PartNo</td>
             <td>@row.Description</td>
-            <!-- <td>@row.Purchaser/Buyer</td> -->
-            <!-- <td>@row.PaymentTerms</td>  -->
+            <td>@String.Format("{0:dd-MM-yyyy}", row.DueDate)</td>
+            <td>@String.Format("{0:dd-MM-yyyy}", row.RevisedDelDate)</td>
             <td>@row.Currency</td>
             <td>@row.Quantity</td>
-            <!-- <td>@row.UOM </td> -->
-            <!-- <td>@row.Unit Price </td> -->
+            <!-- <td>@row.UOM</td> -->
+            <!-- <td>@row.UnitPrice</td> -->
             <td>@String.Format("{0:f}", row.OrigAmt)</td>
             <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
 
