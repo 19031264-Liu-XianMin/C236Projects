@@ -28,24 +28,28 @@
     <thead>
         <tr>
             <th scope="col">Number</th>
+
             <th scope="col">PO No.</th>
             <th scope="col">Order Date</th>
-            <!-- <th scope="col">Payment Terms</th> -->
-            <!-- <th scope="col">Purchaser/Buyer</th> -->
-            <!-- <th scope="col">TSH CM PO NO</th> -->
+            <th scope="col">Payment Terms</th>
+
+            <th scope="col">Purchaser/Buyer</th>
+
+
+            <th scope="col">TSH CM PO No.</th>
             <th scope="col">Part No.</th>
             <th scope="col">Description</th>
             <th scope="col">Due Date</th>
             <th scope="col">Revised Del-Date</th>
             <th scope="col">Currency</th>
             <th scope="col">Quantity</th>
-            <!-- <th scope="col">UOM </th> -->
-            <!-- <th scope ="col"> Unit Price </th> -->
+            <th scope="col">UOM</th>
+            <th scope="col">Unit Price</th>
             <th scope="col">OrigAmt</th>
 
             @if (User.IsInRole("supplier"))
             {
-            <th scope="col">Action</th>
+                <th scope="col">Action</th>
             }
             <!--<th scope="col">Action</th>-->
 
@@ -56,27 +60,33 @@
         {
         <tr>
             <td>@row.Number</td>
+
             <td>@row.PONo</td>
             <td>@String.Format("{0:dd-MM-yyyy}", row.OrderDate)</td>
             <td>@row.PaymentTerms</td>
 
+            <td>@row.Purchaser</td>
+
+            <td>@row.TSHPONO</td>
             <td>@row.PartNo</td>
             <td>@row.Description</td>
             <td>@String.Format("{0:dd-MM-yyyy}", row.DueDate)</td>
             <td>@String.Format("{0:dd-MM-yyyy}", row.RevisedDelDate)</td>
             <td>@row.Currency</td>
             <td>@row.Quantity</td>
+            <td>@row.UOM</td>
+            <td>@row.UnitPrice</td>
             <td>@String.Format("{0:f}", row.OrigAmt)</td>
             <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
 
             @if (User.IsInRole("supplier"))
-                {
-            <td>
-                <a asp-controller="Status"
-                   asp-action="Confirmation"
-                   asp-route-id="@row.Number">Status</a>
-            </td>
-                }
+            {
+                <td>
+                    <a asp-controller="Status"
+                       asp-action="Confirmation"
+                       asp-route-id="@row.Number">Status</a>
+                </td>
+            }
         </tr>
         }
     </tbody>
