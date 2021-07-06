@@ -50,37 +50,42 @@
             <th scope="col">Action</th>
             }
 
-            <!--<th scope="col">Action</th>-->
 
         </tr>
     </thead>
     <tbody>
         @foreach (Menu row in Model)
         {
-            <tr>
-                <td>@row.Number</td>
-                <td>@String.Format("{0:dd-MM-yyyy}", row.OrderDate)</td>
-                <td>@String.Format("{0:dd-MM-yyyy}", row.DueDate)</td>
-                <td>@String.Format("{0:dd-MM-yyyy}", row.RevisedDelDate)</td>
-                <td>@row.PONo</td>
-                <td>@row.PRNo</td>
-                <td>@row.PartNo</td>
-                <td>@row.Description</td>
-                <td>@row.Currency</td>
-                <td>@row.Quantity</td>
-                <td>@String.Format("{0:f}", row.OrigAmt)</td>
-                <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
-                                
-                    @if (User.IsInRole("supplier") || User.IsInRole("admin"))
-                {
-                    <td>
-                        <a asp-controller="Status"
-                           asp-action="Confirmation"
-                           asp-route-id="@row.Number">Status</a>
-                    </td>
-                }
+        <tr>
+            <td>@row.Number</td>
 
-            </tr>
+            <td>@row.PONo</td>
+            <td>@String.Format("{0:dd-MM-yyyy}", row.OrderDate)</td>
+            <td>@row.PaymentTerms</td>
+
+
+
+
+
+            <td>@row.PartNo</td>
+            <td>@row.Description</td>
+            <td>@String.Format("{0:dd-MM-yyyy}", row.DueDate)</td>
+            <td>@String.Format("{0:dd-MM-yyyy}", row.RevisedDelDate)</td>
+            <td>@row.Currency</td>
+            <td>@row.Quantity</td>
+            <td>@String.Format("{0:f}", row.OrigAmt)</td>
+            <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
+
+            @if (User.IsInRole("supplier") || User.IsInRole("admin"))
+            {
+                <td>
+                    <a asp-controller="Status"
+                       asp-action="Confirmation"
+                       asp-route-id="@row.Number">Status</a>
+                </td>
+            }
+
+        </tr>
         }
     </tbody>
 </table>
