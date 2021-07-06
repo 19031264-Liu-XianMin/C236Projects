@@ -27,53 +27,6 @@ namespace FYPTesting.Controllers
             return View(list);
         }
 
-        [Authorize(Roles = "supplier")]
-        public IActionResult EditMenu(int id)
-        {
-            string select = "SELECT * FROM Menu WHERE Number={0}";
-            List<Menu> list = DBUtl.GetList<Menu>(select, id);
-            if (list.Count == 1)
-            {
-                return View(list[0]);
-            }
-            else
-            {
-                TempData["Message"] = "Number is not found";
-                TempData["MsgType"] = "warning";
-                return RedirectToAction("SupplierMenu");
-            }
-        }
-
-        [Authorize(Roles = "supplier")]
-        [HttpPost]
-        public IActionResult EditMenu(Menu mn)
-        {
-            if (!ModelState.IsValid)
-            {
-                ViewData["Message"] = "Invalid Input";
-                ViewData["MsgType"] = "warning";
-                return View("EditMenu");
-            }
-            else
-            {
-                string update =
-                   @"UPDATE Menu
-                    SET RevisedDelDate='{3:YYYY-MM-DD}',  Quantity={9}
-                  WHERE Number={0}";
-                int res = DBUtl.ExecSQL(update, mn.RevisedDelDate, mn.Quantity);
-                if (res == 1)
-                {
-                    TempData["Message"] = "Menu Updated";
-                    TempData["MsgType"] = "success";
-                }
-                else
-                {
-                    TempData["Message"] = DBUtl.DB_Message;
-                    TempData["MsgType"] = "danger";
-                }
-                return RedirectToAction("SupplierMenu");
-            }
-        }
 
         [Authorize(Roles = "admin, purchaser")]
         public IActionResult AddPO()
