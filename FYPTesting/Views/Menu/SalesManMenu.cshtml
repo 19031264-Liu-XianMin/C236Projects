@@ -45,12 +45,6 @@
             <th scope="col">UOM</th>
             <th scope="col">Unit Price</th>
             <th scope="col">OrigAmt</th>
-            @if (User.IsInRole("salesman"))
-            {
-                <th scope="col">Action</th>
-            }
-            <!--<th scope="col">Action</th>-->
-
         </tr>
     </thead>
     <tbody>
@@ -77,14 +71,6 @@
             <td>@String.Format("{0:f}", row.OrigAmt)</td>
             <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
 
-            @if (User.IsInRole("supplier"))
-            {
-                <td>
-                    <a asp-controller="Status"
-                       asp-action="Confirmation"
-                       asp-route-id="@row.Number">Status</a>
-                </td>
-            }
         </tr>
         }
     </tbody>
