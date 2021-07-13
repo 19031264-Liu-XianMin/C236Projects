@@ -27,7 +27,7 @@ namespace FYPTesting.Controllers
             return View(list);
         }
 
-        [Authorize(Roles = "supplier, admin")]
+        [Authorize(Roles = "purchaser, admin")]
         public IActionResult EditPO(int id)
         {
             string select = "SELECT * FROM Menu WHERE Number={0}";
@@ -44,7 +44,7 @@ namespace FYPTesting.Controllers
             }
         }
 
-        [Authorize(Roles = "supplier, admin")]
+        [Authorize(Roles = "purchaser, admin")]
         [HttpPost]
         public IActionResult EditPO(Menu mn)
         {
