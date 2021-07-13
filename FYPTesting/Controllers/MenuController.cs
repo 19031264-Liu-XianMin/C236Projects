@@ -20,11 +20,25 @@ namespace FYPTesting.Controllers
             return View(supplierList);
         }
 
-        [Authorize(Roles ="admin, supplier, salesman, purchaser")]
+        [Authorize(Roles ="admin")]
         public IActionResult ListMenu()
         {
             List<Menu> list = DBUtl.GetList<Menu>("SELECT * FROM Menu");
             return View(list);
+        }
+
+        [Authorize(Roles = "purchaser")]
+        public IActionResult PurchaserMenu()
+        {
+            List<Menu> Purchaserlist = DBUtl.GetList<Menu>("SELECT * FROM Menu");
+            return View(Purchaserlist);
+        }
+
+        [Authorize(Roles = "salesman")]
+        public IActionResult SalesManMenu()
+        {
+            List<Menu> SalesManlist = DBUtl.GetList<Menu>("SELECT * FROM Menu");
+            return View(SalesManlist);
         }
 
         [Authorize(Roles = "purchaser, admin")]
