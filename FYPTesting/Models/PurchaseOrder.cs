@@ -30,11 +30,11 @@ namespace FYPTesting.Models
         public string JobNum { get; set; }
 
         [Required(ErrorMessage = "Please enter Purchaser Name")]
-        [StringLength(200, MinimumLength = 1, ErrorMessage = "Supplier Name 1-200 chars")]
+        [StringLength(200, MinimumLength = 1, ErrorMessage = "Purchaser Name 1-200 chars")]
         public string Purchaser { get; set; }
 
         [Required(ErrorMessage = "Please enter Request Name")]
-        [StringLength(200, MinimumLength = 1, ErrorMessage = "Supplier Name 1-200 chars")]
+        [StringLength(200, MinimumLength = 1, ErrorMessage = "Requester 1-200 chars")]
         public string Request { get; set; }
 
         [Required(ErrorMessage = "Please enter PR No")]
