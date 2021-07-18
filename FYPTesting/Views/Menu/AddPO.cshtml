@@ -29,9 +29,9 @@
 
     <input asp-for="Number" hidden />
 
-    <!--     <div class="form-group row">
+    <div class="form-group row">
         <label class="control-label col-sm-2" asp-for="OrderDate">Order Date :</label>
-        <div class="col-sm-5">
+        <div class="col-sm-3">
             <div class="input-group date" id="JSDateA" data-target-input="nearest">
                 <input type="text" asp-for="OrderDate" class="form-control" asp-format="{0:DD-MM-YYYY}" />
                 <div class="input-group-append" data-target="#JSDateA" data-toggle="datetimepicker">
@@ -42,23 +42,11 @@
         <div class="col-sm-4">
             <span asp-validation-for="OrderDate" class="text-danger"></span>
         </div>
-    </div> -->
-    <!--
-    <div class="form-group row">
-        <label class="control-label col-sm-2" asp-for="OrderDate">Order Date :</label>
-        <div class="col-sm-5">
-            <div class="input-group date" id="JSDateA" data-target-input="nearest">
-                <input type="text" asp-for="OrderDate" class="form-control" />
-                <div class="input-group-append" data-target="#JSDateA" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="fas fa-calendar"></i></div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="form-group row">
         <label class="control-label col-sm-2" asp-for="DueDate">Due Date :</label>
-        <div class="col-sm-5">
+        <div class="col-sm-3">
             <div class="input-group date" id="JSDateB" data-target-input="nearest">
                 <input type="text" asp-for="DueDate" class="form-control" />
                 <div class="input-group-append" data-target="#JSDateB" data-toggle="datetimepicker">
@@ -66,11 +54,43 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="DueDate" class="text-danger"></span>
+        </div>
     </div>
 
     <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="Purchaser">Purchaser :</label>
+        <div class="col-sm-4">
+            <input asp-for="Purchaser" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="Purchaser" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="Request">Requestor :</label>
+        <div class="col-sm-4">
+            <input asp-for="Request" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="Request" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="SupplierName">Supplier Name :</label>
+        <div class="col-sm-4">
+            <input asp-for="SupplierName" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="SupplierName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
         <label class="control-label col-sm-2" asp-for="PONo">PO No. :</label>
-        <div class="col-sm-5">
+        <div class="col-sm-3">
             <input asp-for="PONo" class="form-control" />
         </div>
         <div class="col-sm-4">
@@ -79,8 +99,18 @@
     </div>
 
     <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="TSHPONO">TSH PO No. :</label>
+        <div class="col-sm-3">
+            <input asp-for="TSHPONO" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="TSHPONO" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
         <label class="control-label col-sm-2" asp-for="PRNo">PR No. :</label>
-        <div class="col-sm-5">
+        <div class="col-sm-3">
             <input asp-for="PRNo" class="form-control" />
         </div>
         <div class="col-sm-4">
@@ -97,6 +127,17 @@
             <span asp-validation-for="PartNo" class="text-danger"></span>
         </div>
     </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="JobNum">Job Number :</label>
+        <div class="col-sm-3">
+            <input asp-for="JobNum" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="JobNum" class="text-danger"></span>
+        </div>
+    </div>
+
 
     <div class="form-group row">
         <label class="control-label col-sm-2" asp-for="Currency">Currency :</label>
@@ -120,6 +161,36 @@
     </div>
 
     <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="PaymentTerms">Payment Terms :</label>
+        <div class="col-sm-3">
+            <input asp-for="PaymentTerms" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="PaymentTerms" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="UOM">UOM :</label>
+        <div class="col-sm-3">
+            <input asp-for="UOM" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="UOM" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="UnitPrice">Unit Price :</label>
+        <div class="col-sm-3">
+            <input asp-for="UnitPrice" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="UnitPrice" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
         <label class="control-label col-sm-2" asp-for="OrigAmt">Orig. Amt. :</label>
         <div class="col-sm-3">
             <input asp-for="OrigAmt" class="form-control" />
@@ -128,6 +199,8 @@
             <span asp-validation-for="OrigAmt" class="text-danger"></span>
         </div>
     </div>
+
+
 
     <div class="form-group row">
         <label class="control-label col-sm-2" asp-for="Description">Description :</label>
@@ -144,8 +217,8 @@
             <input type="submit" value="Submit" class="btn btn-primary" />
         </div>
     </div>
-        -->
 
+    <!--
     <div class="form-group row">
         <label class="control-label col-sm-2" asp-for="Number">File :</label>
         <div class="col-sm-6">
@@ -157,15 +230,15 @@
     </div>
     </div>
 
-
+    -->
     @if (ViewData["Message"] != null)
     {
-    <div class="form-group row">
-        <div class="offset-sm-2 col-sm-6">
-            <div class="alert alert-@ViewData["MsgType"]">
-                ViewData["Message"]
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-6">
+                <div class="alert alert-@ViewData["MsgType"]">
+                    ViewData["Message"]
+                </div>
             </div>
         </div>
-    </div>
     }
 </form>
