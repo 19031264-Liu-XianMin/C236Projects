@@ -1,0 +1,65 @@
+﻿@section MoreScripts {
+    <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#jsMenuTable').DataTable({
+                ordering: true,
+                paging: true,
+                searching: true
+            });
+        });
+    </script>
+}
+
+@model List<Menu>;
+
+<h2>Purchaser View</h2>
+
+@using (Html.BeginForm("UploadFile", "Menu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <button type="submit">Upload</button>
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-@TempData["MsgType"]">
+        @TempData["Message"]
+    </div>
+}
+
+<table id="jsMenuTable" class="table">
+    <thead>
+        <tr style="background-color:black;color:whitesmoke;">
+            <th scope="col">Number</th>
+            <th scope="col">Supplier Name</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Payment Terms</th>
+            <th scope="col">Purchaser/Buyer</th>
+            <th scope="col">Request</th>
+            <th scope="col">Description</th>
+            <th scope="col">Currency</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Menu row in Model)
+        {
+            <tr style="background-color:grey;color:aquamarine">
+                <td>@row.Number</td>
+                <td>@row.SupplierName</td>
+                <td>@String.Format("{0:dd-MM-yyyy}", row.OrderDate)</td>
+                <td>@row.PaymentTerms</td>
+                <td>@row.Purchaser</td>
+                <td>@row.Request</td>
+                <td>@row.Description</td>
+                <td>@row.Currency</td>
+                <td>@row.Quantity</td>
+                <td>@row.UnitPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>

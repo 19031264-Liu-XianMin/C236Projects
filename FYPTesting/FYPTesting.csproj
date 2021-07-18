@@ -1,11 +1,120 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="bin\Debug\netcoreapp3.1\appsettings.Development.json" />
+	  <Content Include="bin\Debug\netcoreapp3.1\appsettings.json" />
+	  <Content Include="bin\Debug\netcoreapp3.1\FYPTesting.deps.json" />
+	  <Content Include="bin\Debug\netcoreapp3.1\FYPTesting.runtimeconfig.dev.json" />
+	  <Content Include="bin\Debug\netcoreapp3.1\FYPTesting.runtimeconfig.json" />
+	  <Content Include="bin\Debug\netcoreapp3.1\libman.json" />
+	  <Content Include="bin\Debug\netcoreapp3.1\Properties\launchSettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="bin\Debug\netcoreapp3.1\AWSSDK.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Cosmos.CRTCompat.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\EntityFramework.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\EPPlus.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\FYPTesting.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\FYPTesting.exe" />
+	  <None Include="bin\Debug\netcoreapp3.1\FYPTesting.pdb" />
+	  <None Include="bin\Debug\netcoreapp3.1\FYPTesting.Views.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\FYPTesting.Views.pdb" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Azure.DocumentDB.Core.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Azure.Documents.ServiceInterop.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Microsoft.IO.RecyclableMemoryStream.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\Cosmos.CRTCompat.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\Microsoft.Azure.Documents.ServiceInterop.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\System.IO.Packaging.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\System.Web.Providers.dll" />
+	  <None Include="bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll" />
+	  <None Include="FYPTesting.csproj" />
+	  <None Include="FYPTesting.csproj.user" />
+	  <None Include="FYPTesting.sln" />
+	  <None Include="Views\Account\About.cshtml" />
+	  <None Include="Views\Account\MemberLogin.cshtml" />
+	  <None Include="Views\Account\Members.cshtml" />
+	  <None Include="Views\Account\UserCreate.cshtml" />
+	  <None Include="Views\Menu\AddPO.cshtml" />
+	  <None Include="Views\Menu\AdminView.cshtml" />
+	  <None Include="Views\Menu\EditPO.cshtml" />
+	  <None Include="Views\Menu\ListMenu.cshtml" />
+	  <None Include="Views\Menu\Login.cshtml" />
+	  <None Include="Views\Menu\POTable.cshtml" />
+	  <None Include="Views\Menu\PurchaserMenu.cshtml" />
+	  <None Include="Views\Menu\PurchaserView.cshtml" />
+	  <None Include="Views\Menu\SalesManMenu.cshtml" />
+	  <None Include="Views\Menu\SupplierMenu.cshtml" />
+	  <None Include="Views\Menu\SupplierView.cshtml" />
+	  <None Include="Views\PO\PurchaseOrder.cshtml" />
+	  <None Include="Views\Shared\Admin.cshtml" />
+	  <None Include="Views\Shared\Purchaser.cshtml" />
+	  <None Include="Views\Shared\SalesMan.cshtml" />
+	  <None Include="Views\Shared\Supplier.cshtml" />
+	  <None Include="Views\Shared\TSHSynergy.cshtml" />
+	  <None Include="Views\Shared\_Layout.cshtml" />
+	  <None Include="Views\_ViewImports.cshtml" />
+	  <None Include="Views\_ViewStart.cshtml" />
+	  <None Include="wwwroot\lib\bootstrap\js\bootstrap.min.js" />
+	  <None Include="wwwroot\lib\datatables\js\jquery.dataTables.min.js" />
+	  <None Include="wwwroot\lib\dtpicker\js\tempusdominus-bootstrap-4.min.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\all.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\all.min.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\brands.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\brands.min.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\conflict-detection.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\conflict-detection.min.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\fontawesome.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\fontawesome.min.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\regular.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\regular.min.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\solid.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\solid.min.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\v4-shims.js" />
+	  <None Include="wwwroot\lib\font-awesome\js\v4-shims.min.js" />
+	  <None Include="wwwroot\lib\font-awesome\sprites\brands.svg" />
+	  <None Include="wwwroot\lib\font-awesome\sprites\regular.svg" />
+	  <None Include="wwwroot\lib\font-awesome\sprites\solid.svg" />
+	  <None Include="wwwroot\lib\font-awesome\webfonts\fa-brands-400.svg" />
+	  <None Include="wwwroot\lib\font-awesome\webfonts\fa-brands-400.woff2" />
+	  <None Include="wwwroot\lib\font-awesome\webfonts\fa-regular-400.svg" />
+	  <None Include="wwwroot\lib\font-awesome\webfonts\fa-regular-400.woff2" />
+	  <None Include="wwwroot\lib\font-awesome\webfonts\fa-solid-900.svg" />
+	  <None Include="wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2" />
+	  <None Include="wwwroot\lib\jquery\jquery.min.js" />
+	  <None Include="wwwroot\lib\jquery\jquery.validate.min.js" />
+	  <None Include="wwwroot\lib\jquery\jquery.validate.unobtrusive.min.js" />
+	  <None Include="wwwroot\lib\moment\moment.min.js" />
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="AWSSDK" Version="2.3.55.2" />
 		<PackageReference Include="DocumentFormat.OpenXml" Version="2.13.0" />
+		<PackageReference Include="EPPlus" Version="5.7.1" />
 		<PackageReference Include="Microsoft.AspNet.Providers.Core" Version="2.0.0" />
 		<PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.14.1" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.2" />

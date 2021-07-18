@@ -25,7 +25,10 @@ namespace FYPTesting.Controllers
         private const string NAME_COL = "FullName";
 
         private const string REDIRECT_CNTR = "Menu";
-        private const string REDIRECT_ACTN = "ListMenu";
+        private const string REDIRECT_ACTN = "AdminView";
+        private const string REDIRECT_ACTNA = "SupplierView";
+        private const string REDIRECT_ACTNB = "PurchaserView";
+        private const string REDIRECT_ACTNC = "SalesManMenu";
 
         private const string LOGIN_VIEW = "MemberLogin";
 
@@ -47,52 +50,182 @@ namespace FYPTesting.Controllers
         [HttpPost]
         public IActionResult Login(MemberLogin member)
         {
-            if (!AuthenticateUser(member.UserID, member.Password, out ClaimsPrincipal principal))
+            if (User.IsInRole("admin"))
             {
-                ViewData["Message"] = "Incorrect User ID or Password";
-                ViewData["MsgType"] = "warning";
-                return View(LOGIN_VIEW);
+                if (!AuthenticateUser(member.UserID, member.Password, out ClaimsPrincipal principal))
+                {
+                    ViewData["Message"] = "Incorrect User ID or Password";
+                    ViewData["MsgType"] = "warning";
+                    return View(LOGIN_VIEW);
+                }
+                else 
+                {
+
+                    HttpContext.SignInAsync(
+                       CookieAuthenticationDefaults.AuthenticationScheme,
+                       principal,
+                       new AuthenticationProperties
+                       {
+                           IsPersistent = member.RememberMe
+                       });
+
+                    DBUtl.ExecSQL(LASTLOGIN_SQL, member.UserID);
+
+                    if (TempData["returnUrl"] != null)
+                    {
+                        string returnUrl = TempData["returnUrl"].ToString();
+                        if (Url.IsLocalUrl(returnUrl))
+                            return Redirect(returnUrl);
+                    }
+
+                    return RedirectToAction(REDIRECT_ACTN, REDIRECT_CNTR);
+                }
+
+            }
+
+
+            else if(User.IsInRole("supplier"))
+            {
+                if (!AuthenticateUser(member.UserID, member.Password, out ClaimsPrincipal principal))
+                {
+                    ViewData["Message"] = "Incorrect User ID or Password";
+                    ViewData["MsgType"] = "warning";
+                    return View(LOGIN_VIEW);
+                }
+                else
+                {
+
+                    HttpContext.SignInAsync(
+                       CookieAuthenticationDefaults.AuthenticationScheme,
+                       principal,
+                       new AuthenticationProperties
+                       {
+                           IsPersistent = member.RememberMe
+                       });
+
+                    DBUtl.ExecSQL(LASTLOGIN_SQL, member.UserID);
+
+                    if (TempData["returnUrl"] != null)
+                    {
+                        string returnUrl = TempData["returnUrl"].ToString();
+                        if (Url.IsLocalUrl(returnUrl))
+                            return Redirect(returnUrl);
+                    }
+
+                    return RedirectToAction(REDIRECT_ACTNA, REDIRECT_CNTR);
+                }
+
+            }
+            else if (User.IsInRole("purchaser"))
+            {
+                if (!AuthenticateUser(member.UserID, member.Password, out ClaimsPrincipal principal))
+                {
+                    ViewData["Message"] = "Incorrect User ID or Password";
+                    ViewData["MsgType"] = "warning";
+                    return View(LOGIN_VIEW);
+                }
+                else
+                {
+
+                    HttpContext.SignInAsync(
+                       CookieAuthenticationDefaults.AuthenticationScheme,
+                       principal,
+                       new AuthenticationProperties
+                       {
+                           IsPersistent = member.RememberMe
+                       });
+
+                    DBUtl.ExecSQL(LASTLOGIN_SQL, member.UserID);
+
+                    if (TempData["returnUrl"] != null)
+                    {
+                        string returnUrl = TempData["returnUrl"].ToString();
+                        if (Url.IsLocalUrl(returnUrl))
+                            return Redirect(returnUrl);
+                    }
+
+                    return RedirectToAction(REDIRECT_ACTNB, REDIRECT_CNTR);
+                }
+
             }
             else
             {
-
-                HttpContext.SignInAsync(
-                   CookieAuthenticationDefaults.AuthenticationScheme,
-                   principal,
-                   new AuthenticationProperties
-                   {
-                       IsPersistent = member.RememberMe
-                   });
-
-                DBUtl.ExecSQL(LASTLOGIN_SQL, member.UserID);
-
-                if (TempData["returnUrl"] != null)
+                if (!AuthenticateUser(member.UserID, member.Password, out ClaimsPrincipal principal))
                 {
-                    string returnUrl = TempData["returnUrl"].ToString();
-                    if (Url.IsLocalUrl(returnUrl))
-                        return Redirect(returnUrl);
+                    ViewData["Message"] = "Incorrect User ID or Password";
+                    ViewData["MsgType"] = "warning";
+                    return View(LOGIN_VIEW);
+                }
+                else
+                {
+
+                    HttpContext.SignInAsync(
+                       CookieAuthenticationDefaults.AuthenticationScheme,
+                       principal,
+                       new AuthenticationProperties
+                       {
+                           IsPersistent = member.RememberMe
+                       });
+
+                    DBUtl.ExecSQL(LASTLOGIN_SQL, member.UserID);
+
+                    if (TempData["returnUrl"] != null)
+                    {
+                        string returnUrl = TempData["returnUrl"].ToString();
+                        if (Url.IsLocalUrl(returnUrl))
+                            return Redirect(returnUrl);
+                    }
+
+                    return RedirectToAction(REDIRECT_ACTNC, REDIRECT_CNTR);
                 }
 
-                return RedirectToAction(REDIRECT_ACTN, REDIRECT_CNTR);
             }
+
         }
 
         [Authorize]
         public IActionResult Logoff(string returnUrl = null)
         {
-            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            if (Url.IsLocalUrl(returnUrl))
-                return Redirect(returnUrl);
-            return RedirectToAction(REDIRECT_ACTN, REDIRECT_CNTR);
+            if (User.IsInRole("admin"))
+            {
+                HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                if (Url.IsLocalUrl(returnUrl))
+                    return Redirect(returnUrl);
+                return RedirectToAction(REDIRECT_ACTN, REDIRECT_CNTR);
+            }
+
+            else if (User.IsInRole("supplier"))
+            {
+                HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                if (Url.IsLocalUrl(returnUrl))
+                    return Redirect(returnUrl);
+                return RedirectToAction(REDIRECT_ACTNA, REDIRECT_CNTR);
+            }
+            else if (User.IsInRole("purchaser"))
+            {
+                HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                if (Url.IsLocalUrl(returnUrl))
+                    return Redirect(returnUrl);
+                return RedirectToAction(REDIRECT_ACTNB, REDIRECT_CNTR);
+            }
+            else
+            {
+                HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                if (Url.IsLocalUrl(returnUrl))
+                    return Redirect(returnUrl);
+                return RedirectToAction(REDIRECT_ACTNC, REDIRECT_CNTR);
+            }
+
         }
 
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public IActionResult Members()
         {
             List<AdminLogin> list = DBUtl.GetList<AdminLogin>("SELECT * FROM AdminLogin WHERE UserRole='purchaser' OR UserRole='supplier' OR UserRole='salesman'");
             return View(list);
         }
+
 
         [Authorize(Roles = "admin")]
         public IActionResult Delete(string id)

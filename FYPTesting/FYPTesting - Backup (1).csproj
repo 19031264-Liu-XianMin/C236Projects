@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="AWSSDK" Version="2.3.55.2" />
+		<PackageReference Include="DocumentFormat.OpenXml" Version="2.13.0" />
+		<PackageReference Include="EPPlus" Version="5.7.1" />
+		<PackageReference Include="Microsoft.AspNet.Providers.Core" Version="2.0.0" />
+		<PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.14.1" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+	</ItemGroup>
+
+</Project>
