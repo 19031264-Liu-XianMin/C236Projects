@@ -160,7 +160,7 @@ namespace FYPTesting.Controllers
             {
                 TempData["Message"] = "Number is not found";
                 TempData["MsgType"] = "warning";
-                return RedirectToAction("ListMenu");
+                return RedirectToAction("AdminView");
             }
         }
 
