@@ -191,7 +191,7 @@ namespace FYPTesting.Controllers
                     TempData["Message"] = DBUtl.DB_Message;
                     TempData["MsgType"] = "danger";
                 }
-                return RedirectToAction("ListMenu");
+                return RedirectToAction("PurchaserView");
             }
         }
 
@@ -225,7 +225,7 @@ namespace FYPTesting.Controllers
                     TempData["Message"] = DBUtl.DB_Message;
                     TempData["MsgType"] = "danger";
                 }
-                return RedirectToAction("ListMenu");
+                return RedirectToAction("PurchaserView");
             }
         }
 

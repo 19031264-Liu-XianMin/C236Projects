@@ -27,7 +27,15 @@
         </div>
     </div>
 
-    <input asp-for="Number" hidden />
+    <div class="form-group row">
+        <label class="control-label col-sm-2" asp-for="Number">Number:</label>
+        <div class="col-sm-4">
+            <input asp-for="Number" class="form-control" />
+        </div>
+        <div class="col-sm-4">
+            <span asp-validation-for="Number" class="text-danger"></span>
+        </div>
+    </div>
 
     <div class="form-group row">
         <label class="control-label col-sm-2" asp-for="OrderDate">Order Date :</label>
@@ -70,7 +78,7 @@
     </div>
 
     <div class="form-group row">
-        <label class="control-label col-sm-2" asp-for="Request">Requestor :</label>
+        <label class="control-label col-sm-2" asp-for="Request">Request:</label>
         <div class="col-sm-4">
             <input asp-for="Request" class="form-control" />
         </div>
