@@ -6,7 +6,7 @@ namespace FYPTesting.Models
 {
     public class Menu
     {
-        [Required(ErrorMessage = "Please enter Number")]
+
         public int Number { get; set; }
 
         [Required(ErrorMessage = "Please enter Supplier Name")]
