@@ -1,0 +1,51 @@
+﻿@model Menu;
+
+@section MoreScripts {
+    <script src="~/lib/moment/moment.min.js"></script>
+    <link href="~/lib/dtpicker/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <script src="~/lib/dtpicker/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script language="javascript">
+    $(document).ready(function () {
+        });</script>
+}
+
+<form asp-controller="Menu"
+      asp-action="AcceptOrDecline"
+      method="post">
+
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-6 ">
+            <h2>Confirmation Page</h2>
+        </div>
+    </div>
+
+    <div class="offset-sm-2 col-sm-6 ">
+        <ln>Request: </ln>
+        <ln>PONo: </ln>
+        <ln>PartNo: </ln>
+        <ln>Quantity: </ln>
+        <ln>Amount: </ln>
+        <ln>Delivered Date: </ln>
+    </div>
+
+
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-6">
+            <button type="submit" class="btn btn-outline-success">Accept</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-outline-danger">Decline</button>
+        </div>
+    </div>
+
+        @if (ViewData["Message"] != null)
+        {
+<div class="form-group row">
+    <div class="offset-sm-2 col-sm-6">
+        <div class="alert alert-@ViewData["MsgType"]">
+            ViewData["Message"]
+        </div>
+    </div>
+</div>}
+
+
+</form>

@@ -96,8 +96,8 @@
             @if (User.IsInRole("admin"))
             {
             <td>
-                <a asp-controller="Status"
-                   asp-action="Confirmation"
+                <a asp-controller="Menu"
+                   asp-action="confirmation"
                    asp-route-id="@row.Number">Status</a>
                 <!--
             |          <a asp-controller="Menu"

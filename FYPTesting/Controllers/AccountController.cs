@@ -7,6 +7,8 @@ using System.Security.Claims;
 using FYPTesting.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
+using System.Net.Mail;
+using System.Net;
 
 namespace FYPTesting.Controllers
 {
@@ -20,6 +22,13 @@ namespace FYPTesting.Controllers
 
         private const string LASTLOGIN_SQL =
            @"UPDATE AdminLogin SET LastLogin=GETDATE() WHERE UserId='{0}'";
+
+        private const string StartWeek_SQL =
+           @"UPDATE AdminLogin SET StartWeek=GETDATE('Today') WHERE UserId='{0}'";
+
+        private const string EndWeek_SQL =
+            @"UPDATE AdminLogin SET EndWeek=GETDATE() + 6 WHERE UserId='{0}'";
+
 
         private const string ROLE_COL = "UserRole";
         private const string NAME_COL = "FullName";
@@ -58,7 +67,7 @@ namespace FYPTesting.Controllers
                     ViewData["MsgType"] = "warning";
                     return View(LOGIN_VIEW);
                 }
-                else 
+                else
                 {
 
                     HttpContext.SignInAsync(
@@ -84,7 +93,7 @@ namespace FYPTesting.Controllers
             }
 
 
-            else if(User.IsInRole("supplier"))
+            else if (User.IsInRole("supplier"))
             {
                 if (!AuthenticateUser(member.UserID, member.Password, out ClaimsPrincipal principal))
                 {
@@ -328,6 +337,28 @@ namespace FYPTesting.Controllers
             }
             return false;
         }
+        /*public static void Email(string htmlString)
+        {
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress("liuxianminxm@gmail.com");
+                message.To.Add(new MailAddress("master98oh@gmail.com"));
+                message.Subject = "Test";
+                message.IsBodyHtml = true;
+                message.Body = htmlString;
+                smtp.Port = 587;
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential();
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+
+            }
+            catch (Exception) { }
+        }*/
 
     }
 }

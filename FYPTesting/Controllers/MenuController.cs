@@ -71,15 +71,17 @@ namespace FYPTesting.Controllers
                         col++;
                         menu.Purchaser = Convert.ToString(worksheet.Cells[row, col].Value);
                         col++;
+                        menu.TSHPONO = Convert.ToString(worksheet.Cells[row, col].Value);
+                        col++;
                         menuList.Add(menu);
                     }
                 } // the using 
             }
             foreach (var mn in menuList)
             {
-                string insert = @"INSERT INTO Menu(OrderDate, DueDate, PONo, PRNo, PartNo, Currency, Quantity, OrigAmt, Description, SupplierName, PaymentTerms, JobNum, Purchaser, Request, TSHPONO, RevisedDelDate, UOM,UnitPrice) VALUES
-                 ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, {7}, '{8}','{9}','{10}','{11}','{12}', '{13}', '{14}','{15}', '{16}','{17}')";
-                if (DBUtl.ExecSQL(insert, mn.OrderDate.Date, mn.DueDate.Date, mn.PONo, mn.PRNo, mn.PartNo, mn.Currency, mn.Quantity, mn.OrigAmt, mn.Description, mn.SupplierName, mn.PaymentTerms, mn.JobNum, mn.Purchaser, mn.Request, mn.TSHPONO, mn.RevisedDelDate, mn.UOM, mn.UnitPrice) == 1)
+                string insert = @"INSERT INTO Menu(OrderDate, DueDate, PONo, PRNo, PartNo, Currency, Quantity, OrigAmt, Description, SupplierName, PaymentTerms, JobNum, Purchaser, Request, TSHPONO, RevisedDelDate, UOM,UnitPrice,TSHPONO) VALUES
+                 ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, {7}, '{8}','{9}','{10}','{11}','{12}', '{13}', '{14}','{15}', '{16}','{17}','{18}')";
+                if (DBUtl.ExecSQL(insert, mn.OrderDate.Date, mn.DueDate.Date, mn.PONo, mn.PRNo, mn.PartNo, mn.Currency, mn.Quantity, mn.OrigAmt, mn.Description, mn.SupplierName, mn.PaymentTerms, mn.JobNum, mn.Purchaser, mn.Request, mn.TSHPONO, mn.RevisedDelDate, mn.UOM, mn.UnitPrice, mn.TSHPONO) == 1)
                 {
                     TempData["Message"] = "Purchase Order Inserted";
                     TempData["MsgType"] = "success";
@@ -160,7 +162,7 @@ namespace FYPTesting.Controllers
             {
                 TempData["Message"] = "Number is not found";
                 TempData["MsgType"] = "warning";
-                return RedirectToAction("AdminView");
+                return RedirectToAction("PurchaserView");
             }
         }
 
@@ -191,7 +193,7 @@ namespace FYPTesting.Controllers
                     TempData["Message"] = DBUtl.DB_Message;
                     TempData["MsgType"] = "danger";
                 }
-                return RedirectToAction("ListMenu");
+                return RedirectToAction("PurchaserMenu");
             }
         }
 
@@ -229,5 +231,30 @@ namespace FYPTesting.Controllers
             }
         }
 
+        /*public IActionResult Confirmation(int id)
+        {
+            string select = "SELECT * FROM Menu WHERE Number={0}";
+            List<Menu> list = DBUtl.GetList<Menu>(select, id);
+            if (list.Count == 1)
+            {
+                return View(list[0]);
+            }
+            else
+            {
+                TempData["Message"] = "Number is not found";
+                TempData["MsgType"] = "warning";
+                return RedirectToAction("Confirmation");
+            }
+        }*/
+
+        public ActionResult Confirmation()
+        {
+            return View();
+        }
+
+        public ActionResult AcceptOrDecline()
+        {
+            return View();
+        }
     }
 }
