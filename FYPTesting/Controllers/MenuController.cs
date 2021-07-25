@@ -99,7 +99,7 @@ namespace FYPTesting.Controllers
         {
             return View();
         }
-        public ActionResult POTable()
+        public ActionResult Report()
         {
             return View();
         }
@@ -181,7 +181,7 @@ namespace FYPTesting.Controllers
             {
                 string update =
                    @"UPDATE Menu
-                    SET RevisedDelDate='{1:YYYY-MM-DD}'
+                    SET RevisedDelDate='{1:DD-MM-YYYY}'
                   WHERE Number={0}";
                 int res = DBUtl.ExecSQL(update, mn.Number, mn.RevisedDelDate);
                 if (res == 1)
@@ -254,6 +254,10 @@ namespace FYPTesting.Controllers
         }
 
         public ActionResult AcceptOrDecline()
+        {
+            return View();
+        }
+        public ActionResult PurchaseOrder()
         {
             return View();
         }
