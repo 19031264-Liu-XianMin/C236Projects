@@ -149,7 +149,7 @@ namespace FYPTesting.Controllers
             return View(list);
         }
 
-        [Authorize(Roles = "purchaser, admin")]
+        [Authorize(Roles = "purchaser")]
         public IActionResult EditPO(int id)
         {
             string select = "SELECT * FROM Menu WHERE Number={0}";
@@ -166,7 +166,7 @@ namespace FYPTesting.Controllers
             }
         }
 
-        [Authorize(Roles = "purchaser, admin")]
+        [Authorize(Roles = "purchaser")]
         [HttpPost]
         public IActionResult EditPO(Menu mn)
         {
@@ -193,17 +193,17 @@ namespace FYPTesting.Controllers
                     TempData["Message"] = DBUtl.DB_Message;
                     TempData["MsgType"] = "danger";
                 }
-                return RedirectToAction("PurchaserMenu");
+                return RedirectToAction("PurchaserView");
             }
         }
 
-        [Authorize(Roles = "admin, purchaser")]
+        [Authorize(Roles = " purchaser")]
         public IActionResult AddPO()
         {
             return View("AddPO");
         }
 
-        [Authorize(Roles = "admin, purchaser")]
+        [Authorize(Roles = "purchaser")]
         [HttpPost]
         public IActionResult AddPO(Menu mn)
         {
@@ -227,7 +227,7 @@ namespace FYPTesting.Controllers
                     TempData["Message"] = DBUtl.DB_Message;
                     TempData["MsgType"] = "danger";
                 }
-                return RedirectToAction("ListMenu");
+                return RedirectToAction("PurchaserView");
             }
         }
 
