@@ -168,8 +168,9 @@ namespace FYPTesting.Controllers
 
         [Authorize(Roles = "purchaser")]
         [HttpPost]
-        public IActionResult EditPO(Menu mn)
+        public IActionResult EditPO(Edit mn)
         {
+
             if (!ModelState.IsValid)
             {
                 ViewData["Message"] = "Invalid Input";
@@ -180,9 +181,9 @@ namespace FYPTesting.Controllers
             {
                 string update =
                    @"UPDATE Menu
-                    SET RevisedDelDate='{13:YYYY-MM-DD}'
+                    SET RevisedDelDate='{1:YYYY-MM-DD}'
                   WHERE Number={0}";
-                int res = DBUtl.ExecSQL(update, mn.RevisedDelDate);
+                int res = DBUtl.ExecSQL(update, mn.Number, mn.RevisedDelDate);
                 if (res == 1)
                 {
                     TempData["Message"] = "PO Updated";
@@ -215,8 +216,8 @@ namespace FYPTesting.Controllers
             }
             else
             {
-                string insert = @"INSERT INTO Menu(OrderDate, DueDate, Purchaser, Requestor, SupplierName, PONo, TSHPONO, PRNo, PartNo, JobNum, Currency, Quantity, PaymentTerms, UOM, UnitPrice, OrigAmt, Description) VALUES
-                 ('{0:YYYY-MM-DD}', '{1:YYYY-MM-DD}', '{2}', '{3}', '{4}', '{5}', {6}, {7}, '{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}', '{15}', '{16}')";
+                string insert = @"INSERT INTO Menu(OrderDate, DueDate, Purchaser, Request, SupplierName, PONo, TSHPONO, PRNo, PartNo, JobNum, Currency, Quantity, PaymentTerms, UOM, UnitPrice, OrigAmt, Description) VALUES
+                 ('{0:yyyy-MM-dd}', '{1:yyyy-MM-dd}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', {11}, '{12}', {13}, {14}, {15}, '{16}')";
                 if (DBUtl.ExecSQL(insert, mn.OrderDate, mn.DueDate, mn.RevisedDelDate, mn.Purchaser,mn.Request,mn.SupplierName, mn.PONo, mn.TSHPONO, mn.PRNo, mn.PartNo, mn.JobNum, mn.Currency, mn.Quantity, mn.PaymentTerms, mn.UOM, mn.OrigAmt, mn.Description) == 1)
                 {
                     TempData["Message"] = "Purchase Order Updated";
@@ -258,3 +259,7 @@ namespace FYPTesting.Controllers
         }
     }
 }
+
+
+//                 (SupplierName, PONo, OrderDate, PaymentTerms, JobNum, Purchaser, Request, PRNo, TSHPONO, PartNo, Description, DueDate, Currency, Quantity, UOM, UnitPrice, OrigAmt) Values
+//                 ('{0}', '{1}', '{2:yyyy-MM-dd}', '{2}', '{2}', '{2}', '{2}', '{2}', '{2}', '{2}', '{2}', '{0:yyyy-MM-dd}', { 7}, { 7}, { 7}, { 7}, { 7},}'

@@ -86,7 +86,7 @@
             @if (User.IsInRole("purchaser"))
             {
                 <td>
-                    <a asp-controller="Menu"
+                    <a asp-controller="Status"
                        asp-action="Confirmation"
                        asp-route-id="@row.Number">Status</a>
                     |
