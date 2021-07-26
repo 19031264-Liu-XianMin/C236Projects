@@ -1,0 +1,153 @@
+﻿@model Menu;
+
+@section MoreScripts {
+    <script src="~/lib/moment/moment.min.js"></script>
+    <link href="~/lib/dtpicker/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <script src="~/lib/dtpicker/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script language="javascript">
+    $(document).ready(function () {
+        });</script>
+}
+
+
+<form asp-controller="Menu"
+      asp-action="PurchaseOrder"
+      method="post">
+
+    <table border="0" CELLSPACING=0 style="width: 1170px; margin: 0 auto; font-family: 'Roboto', sans-serif;">
+        <tr>
+            <td colspan="3" style="background:#f1f1f1; font-weight:500;font-size: 1.5rem; color: #000; text-align: center; padding: 10px;">
+                Purchase Order
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight: 500; font-size: 1rem; padding: 5px 0;"><b>AIS Manufacturing Pte Ltd</b></td>
+            <td style="width:130px; display: block; float: right;"></td>
+        </tr>
+        <tr>
+            <td style="font-weight: 400; font-size: 1rem; padding: 5px 0; line-height: 25px;">
+                Account Office : No.2 Sims Close #02-03 Gemin@SIMS, SIngapore 3872960
+                <br> Receiving Store : No.3 Pioneer Sector Walk, Singapore 627897
+                <br> Tel : (65) 6280 0248
+                <br> Company and GST REsistration No : 200510449C
+                <br> A subsidiary of TSH SYnergy Pte Ltd
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table style="border: 1px solid #000; width: 100%; padding: 10px;">
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">To:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000; width: 80%;">
+                            <b>I-CHAMP TECHNOLOGY PTE LTD</b> BLK 9, KALLANG PLACE, #03-05, SINGAPORE 339154
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">Attn:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000;width: 80%;">Mr YONG SHENG</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">Tel:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000;width: 80%;">
+                            +65 6291 8218 /+65 9812 3108
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">Fax:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000;width: 80%;">
+                            +65 6291 8218
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">PO No:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000;width: 80%;">
+                            <b>AIS21040936</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">PO Date:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000;width: 80%;">
+                            20/04/2021
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">Payment Terms:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000;width: 80%;">
+                            30 Days
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">Job No:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000;width: 80%;">
+                            JOA21040988
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">Buyer:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000;width: 80%;">
+                            TAN Siew Huey
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500; padding: 5px 0;">Requestor:</td>
+                        <td style="font-weight: 400; padding: 5px 0;border-bottom: 1px solid #000;width: 80%;">
+                            Yanru
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            /*tr:nth-child(even) {
+            background-color: #dddddd;
+        }*/
+    </style>
+    <table border="0" CELLSPACING=0 style="width: 1170px; margin: 0 auto; font-family: 'Roboto', sans-serif;">
+        <tr>
+            <th>NO</th>
+            <th>PART NO / DESCRIPTION</th>
+            <th>DELIVERY DATE</th>
+            <th>QTY</th>
+            <th>UOM</th>
+            <th>UNIT PRICE</th>
+            <th>AMOUNT</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><u>SGD</u></td>
+            <td><u>SGD</u></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>
+                1084-4EN-080 INSERT, THRD, M4X0, 7X8MM LG HELICOIL
+                <br>JOB NO: JOA21040988
+                <br>PR NO: PRA21040990
+                <br>T-PO-21040232
+            </td>
+            <td>26/04/2021</td>
+            <td>EA</td>
+            <td>20</td>
+            <td>21.9600</td>
+            <td>329.40</td>
+        </tr>
+    </table>
+</form>

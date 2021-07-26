@@ -99,7 +99,7 @@ namespace FYPTesting.Controllers
         {
             return View();
         }
-        public ActionResult POTable()
+        public ActionResult Report()
         {
             return View();
         }
@@ -181,7 +181,7 @@ namespace FYPTesting.Controllers
             {
                 string update =
                    @"UPDATE Menu
-                    SET RevisedDelDate='{1:YYYY-MM-DD}'
+                    SET RevisedDelDate='{1:DD-MM-YYYY}'
                   WHERE Number={0}";
                 int res = DBUtl.ExecSQL(update, mn.Number, mn.RevisedDelDate);
                 if (res == 1)
@@ -217,7 +217,7 @@ namespace FYPTesting.Controllers
             else
             {
                 string insert = @"INSERT INTO Menu(OrderDate, DueDate, Purchaser, Request, SupplierName, PONo, TSHPONO, PRNo, PartNo, JobNum, Currency, Quantity, PaymentTerms, UOM, UnitPrice, OrigAmt, Description) VALUES
-                 ('{0:yyyy-MM-dd}', '{1:yyyy-MM-dd}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', {11}, '{12}', {13}, {14}, {15}, '{16}')";
+                 ('{0:DD-MM-YYYY}', '{1:DD-MM-YYYY}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', {11}, '{12}', {13}, {14}, {15}, '{16}')";
                 if (DBUtl.ExecSQL(insert, mn.OrderDate, mn.DueDate, mn.RevisedDelDate, mn.Purchaser,mn.Request,mn.SupplierName, mn.PONo, mn.TSHPONO, mn.PRNo, mn.PartNo, mn.JobNum, mn.Currency, mn.Quantity, mn.PaymentTerms, mn.UOM, mn.OrigAmt, mn.Description) == 1)
                 {
                     TempData["Message"] = "Purchase Order Updated";
@@ -254,6 +254,10 @@ namespace FYPTesting.Controllers
         }
 
         public ActionResult AcceptOrDecline()
+        {
+            return View();
+        }
+        public ActionResult PurchaseOrder()
         {
             return View();
         }
