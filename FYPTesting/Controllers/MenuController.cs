@@ -261,5 +261,3 @@ namespace FYPTesting.Controllers
 }
 
 
-//                 (SupplierName, PONo, OrderDate, PaymentTerms, JobNum, Purchaser, Request, PRNo, TSHPONO, PartNo, Description, DueDate, Currency, Quantity, UOM, UnitPrice, OrigAmt) Values
-//                 ('{0}', '{1}', '{2:yyyy-MM-dd}', '{2}', '{2}', '{2}', '{2}', '{2}', '{2}', '{2}', '{2}', '{0:yyyy-MM-dd}', { 7}, { 7}, { 7}, { 7}, { 7},}'
