@@ -6,13 +6,20 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System.Net;
+using System.Net.Mail;
+using MailKit.Net.Smtp;
+using MimeKit;
+using MailKit;
+using System.Text;
 
 namespace FYPTesting
 {
-    public class Program
+    class Program
     {
         public static void Main(string[] args)
         {
+            
             CreateHostBuilder(args).Build().Run();
         }
 
