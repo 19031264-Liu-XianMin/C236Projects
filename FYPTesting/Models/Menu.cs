@@ -61,6 +61,7 @@ namespace FYPTesting.Models
         public DateTime RevisedDelDate { get; set; }
 
         [Required(ErrorMessage = "Please enter Currency")]
+        [StringLength(3, MinimumLength = 1, ErrorMessage = "Currency 1-3 chars")]
         public string Currency { get; set; }
 
         [Required(ErrorMessage = "Please enter Quantity No")]

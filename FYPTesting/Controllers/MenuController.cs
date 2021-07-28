@@ -75,13 +75,13 @@ namespace FYPTesting.Controllers
                         col++;
                         menuList.Add(menu);
                     }
-                } // the using 
+                }
             }
             foreach (var mn in menuList)
             {
-                string insert = @"INSERT INTO Menu(OrderDate, DueDate, PONo, PRNo, PartNo, Currency, Quantity, OrigAmt, Description, SupplierName, PaymentTerms, JobNum, Purchaser, Request, TSHPONO, RevisedDelDate, UOM,UnitPrice,TSHPONO) VALUES
-                 ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, {7}, '{8}','{9}','{10}','{11}','{12}', '{13}', '{14}','{15}', '{16}','{17}','{18}')";
-                if (DBUtl.ExecSQL(insert, mn.OrderDate.Date, mn.DueDate.Date, mn.PONo, mn.PRNo, mn.PartNo, mn.Currency, mn.Quantity, mn.OrigAmt, mn.Description, mn.SupplierName, mn.PaymentTerms, mn.JobNum, mn.Purchaser, mn.Request, mn.TSHPONO, mn.RevisedDelDate, mn.UOM, mn.UnitPrice, mn.TSHPONO) == 1)
+                string insert = @"INSERT INTO Menu(OrderDate, DueDate, PONo, PRNo, PartNo, Currency, Quantity, OrigAmt, Description, SupplierName, PaymentTerms, JobNum, Purchaser, Request, TSHPONO, RevisedDelDate, UOM, UnitPrice) VALUES
+                 ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, {7}, '{8}','{9}','{10}','{11}','{12}', '{13}', '{14}','{15}', '{16}','{17}')";
+                if (DBUtl.ExecSQL(insert, mn.OrderDate.Date, mn.DueDate.Date, mn.PONo, mn.PRNo, mn.PartNo, mn.Currency, mn.Quantity, mn.OrigAmt, mn.Description, mn.SupplierName, mn.PaymentTerms, mn.JobNum, mn.Purchaser, mn.Request, mn.TSHPONO, mn.RevisedDelDate, mn.UOM, mn.UnitPrice) == 1)
                 {
                     TempData["Message"] = "Purchase Order Inserted";
                     TempData["MsgType"] = "success";
