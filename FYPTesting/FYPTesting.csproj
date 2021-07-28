@@ -71,7 +71,7 @@
 	  <None Include="Views\Menu\SalesManMenu.cshtml" />
 	  <None Include="Views\Menu\SupplierMenu.cshtml" />
 	  <None Include="Views\Menu\SupplierView.cshtml" />
-	  <None Include="Views\Menu\PurchaseOrder.cshtml" />
+	  <None Include="Views\PO\PurchaseOrder.cshtml" />
 	  <None Include="Views\Shared\Admin.cshtml" />
 	  <None Include="Views\Shared\Purchaser.cshtml" />
 	  <None Include="Views\Shared\SalesMan.cshtml" />
