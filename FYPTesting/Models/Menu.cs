@@ -80,5 +80,9 @@ namespace FYPTesting.Models
         [Range(0.00, 9999999.00, ErrorMessage = "0-9999999 marks")]
         public double OrigAmt { get; set; }
 
+        [Required(ErrorMessage = "Please enter Status")]
+        [StringLength(8, MinimumLength = 1, ErrorMessage = "Status 1-8 chars")]
+        public String Status { get; set; }
+
     }
 }
