@@ -97,11 +97,12 @@
                         <a asp-controller="Menu"
                            asp-action="PurchaseOrder"
                            asp-route-id="@row.Number">Details</a>
-                        <!--
-                            |          <a asp-controller="Menu"
-                        asp-action="EditPO"
-                        asp-route-id="@row.Number">Edit</a>
-                                    -->
+
+                        |
+                        <a asp-controller="Account"
+                           asp-action="EditPOAdmin"
+                           asp-route-id="@row.Number">Edit</a>
+
 
                     </td>
                 }
