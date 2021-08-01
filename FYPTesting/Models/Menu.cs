@@ -46,7 +46,7 @@ namespace FYPTesting.Models
         public string TSHPONO { get; set; }
 
         [Required(ErrorMessage = "Please enter Part No")]
-        [StringLength(11, MinimumLength = 1, ErrorMessage = "Part No 1-11 chars")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Part No 1-50 chars")]
         public String PartNo { get; set; }
 
         [Required(ErrorMessage = "Please enter Description")]
@@ -61,6 +61,7 @@ namespace FYPTesting.Models
         public DateTime RevisedDelDate { get; set; }
 
         [Required(ErrorMessage = "Please enter Currency")]
+        [StringLength(3, MinimumLength = 1, ErrorMessage = "Currency 1-3 chars")]
         public string Currency { get; set; }
 
         [Required(ErrorMessage = "Please enter Quantity No")]

@@ -1,0 +1,207 @@
+﻿@model Menu;
+
+    @section MoreScripts {
+        <script src="~/lib/moment/moment.min.js"></script>
+        <link href="~/lib/dtpicker/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+        <script src="~/lib/dtpicker/js/tempusdominus-bootstrap-4.min.js"></script>
+
+        <script language="javascript">
+            $(document).ready(function () {
+                $('#JSDate')
+                    .datetimepicker({ format: 'DD-MM-YYYY' });
+            });
+        </script>
+    }
+
+    <form asp-controller="Account"
+          asp-action="EditPOAdmin"
+          method="post">
+
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-6 ">
+                <h2>Edit Purchase Order</h2>
+            </div>
+        </div>
+
+        <!-- Number -->
+        <div class="col-sm-5">
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="Number">Number: </label>
+                <input type="text" asp-for="Number" class="form-control" readonly />
+            </div>
+        </div>
+
+        <!-- Number -->
+        <div class="col-sm-5">
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="Suppliername">SupplierName: </label>
+                <input type="text" asp-for="SupplierName" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- PONo -->
+        <div class="col-sm-5">
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="PONo">PONo: </label>
+                <input type="text" asp-for="PONo" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- OrderDate -->
+        <div class="col-sm-5">
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="ORderDate">OrderDate: </label>
+                <input type="text" asp-for="OrderDate" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- PaymentTerms -->
+        <div class="col-sm-5">
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="PaymentTerms">PaymentTerms: </label>
+                <input type="text" asp-for="PaymentTerms" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- JobNum -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="JobNum">JobNum: </label>
+                <input type="text" asp-for="JobNum" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- Purchaser -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="Purchaser">Purchaser: </label>
+                <input type="text" asp-for="Purchaser" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- Request -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="Request">Request: </label>
+                <input type="text" asp-for="Request" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- PRNo -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="PRNo">PRNo: </label>
+                <input type="text" asp-for="PRNo" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- TSHPONO -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="TSHPONO">TSHPONO: </label>
+                <input type="text" asp-for="TSHPONO" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- PartNo -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="PartNo">PartNo: </label>
+                <input type="text" asp-for="PartNo" class="form-control" readonly />
+            </div>
+            <div class="col-sm-3">
+                <span asp-validation-for="PartNo" class="text-danger"></span>
+            </div>
+        </div>
+        <!-- Description -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="Description">Description: </label>
+                <input type="text" asp-for="Description" class="form-control" readonly />
+            </div>
+
+        </div>
+        <!-- DueDate -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="DueDate">DueDate: </label>
+                <input type="text" asp-for="DueDate" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- Currency -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="Currency">Currency: </label>
+                <input type="text" asp-for="Currency" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- Quantity -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="Quantity">Quantity: </label>
+                <input type="text" asp-for="Quantity" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- UOM -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="UOM">UOM: </label>
+                <input type="text" asp-for="UOM" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- UnitPrice
+            -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="UnitPrice">UnitPrice: </label>
+                <input type="text" asp-for="UnitPrice" class="form-control" readonly />
+            </div>
+        </div>
+        <!-- OrigAmt -->
+        <div class="form-group row">
+
+            <div class="col-sm-5">
+                <label class="control-label col-sm-2" for="OrigAmt">OrigAmt: </label>
+                <input type="text" asp-for="OrigAmt" class="form-control" readonly />
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" asp-for="RevisedDelDate">Revised Del-Date :</label>
+            <div class="col-sm-5">
+                <div class="input-group date" id="JSDate" data-target-input="nearest">
+                    <input type="text" asp-for="RevisedDelDate" class="form-control" />
+                    <div class="input-group-append" data-target="#JSDate" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-6">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </div>
+
+
+        @if (ViewData["Message"] != null)
+        {
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-6">
+                    <div class="alert alert-@ViewData["MsgType"]">
+                        <text>@ViewData["Message"]</text>
+                    </div>
+                </div>
+            </div>}
+
+
+
+    </form>
