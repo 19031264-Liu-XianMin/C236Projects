@@ -87,7 +87,7 @@ namespace FYPTesting.Controllers
                             return Redirect(returnUrl);
                     }
 
-                    return RedirectToAction(REDIRECT_ACTN, REDIRECT_CNTR);
+                    return RedirectToAction("AdminView", "Account");
                 }
 
             }
@@ -121,7 +121,7 @@ namespace FYPTesting.Controllers
                             return Redirect(returnUrl);
                     }
 
-                    return RedirectToAction(REDIRECT_ACTNA, REDIRECT_CNTR);
+                    return RedirectToAction("SupplierView", "Menu");
                 }
 
             }
@@ -153,7 +153,7 @@ namespace FYPTesting.Controllers
                             return Redirect(returnUrl);
                     }
 
-                    return RedirectToAction(REDIRECT_ACTNB, REDIRECT_CNTR);
+                    return RedirectToAction("PurchaserView", "Menu");
                 }
 
             }
@@ -185,7 +185,7 @@ namespace FYPTesting.Controllers
                             return Redirect(returnUrl);
                     }
 
-                    return RedirectToAction(REDIRECT_ACTNC, REDIRECT_CNTR);
+                    return RedirectToAction("SalesManView", "Menu");
                 }
 
             }
@@ -195,35 +195,10 @@ namespace FYPTesting.Controllers
         [Authorize]
         public IActionResult Logoff(string returnUrl = null)
         {
-            if (User.IsInRole("admin"))
-            {
-                HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-                if (Url.IsLocalUrl(returnUrl))
-                    return Redirect(returnUrl);
-                return RedirectToAction(REDIRECT_ACTN, REDIRECT_CNTR);
-            }
-
-            else if (User.IsInRole("supplier"))
-            {
-                HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-                if (Url.IsLocalUrl(returnUrl))
-                    return Redirect(returnUrl);
-                return RedirectToAction(REDIRECT_ACTNA, REDIRECT_CNTR);
-            }
-            else if (User.IsInRole("purchaser"))
-            {
-                HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-                if (Url.IsLocalUrl(returnUrl))
-                    return Redirect(returnUrl);
-                return RedirectToAction(REDIRECT_ACTNB, REDIRECT_CNTR);
-            }
-            else
-            {
-                HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-                if (Url.IsLocalUrl(returnUrl))
-                    return Redirect(returnUrl);
-                return RedirectToAction(REDIRECT_ACTNC, REDIRECT_CNTR);
-            }
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            if (Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+            return RedirectToAction("Login", "Account");
 
         }
 
@@ -337,6 +312,61 @@ namespace FYPTesting.Controllers
             }
             return false;
         }
+        [Authorize(Roles = "admin")]
+        public ActionResult AdminView()
+        {
+            List<Menu> list = DBUtl.GetList<Menu>("SELECT * FROM Menu");
+            return View(list);
+        }
+        //Edit PO Admin
+        [Authorize(Roles = "admin")]
+        public IActionResult EditPOAdmin(int id)
+        {
+            string select = "SELECT * FROM Menu WHERE Number={0}";
+            List<Menu> list = DBUtl.GetList<Menu>(select, id);
+            if (list.Count == 1)
+            {
+                return View(list[0]);
+            }
+            else
+            {
+                TempData["Message"] = "Number is not found";
+                TempData["MsgType"] = "warning";
+                return RedirectToAction("AdminView");
+            }
+        }
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public IActionResult EditPOAdmin(Edit mn)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                ViewData["Message"] = "Invalid Input";
+                ViewData["MsgType"] = "warning";
+                return View("EditPOAdmin");
+            }
+            else
+            {
+                string update =
+                   @"UPDATE Menu
+                    SET RevisedDelDate='{0:yyyy-MM-dd}'
+                  WHERE Number={1}";
+                int res = DBUtl.ExecSQL(update, mn.RevisedDelDate, mn.Number);
+                if (res == 1)
+                {
+                    TempData["Message"] = "PO Updated";
+                    TempData["MsgType"] = "success";
+                }
+                else
+                {
+                    TempData["Message"] = DBUtl.DB_Message;
+                    TempData["MsgType"] = "danger";
+                }
+                return RedirectToAction("AdminView");
+            }
+        }
+
         /*public static void Email(string htmlString)
         {
             try

@@ -103,12 +103,8 @@ namespace FYPTesting.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "admin")]
-        public ActionResult AdminView()
-        {
-            List<Menu> list = DBUtl.GetList<Menu>("SELECT * FROM Menu");
-            return View(list);
-        }
+
+        
         [Authorize(Roles = "supplier")]
         public ActionResult SupplierView()
         {
@@ -181,9 +177,9 @@ namespace FYPTesting.Controllers
             {
                 string update =
                    @"UPDATE Menu
-                    SET RevisedDelDate='{1:DD-MM-YYYY}'
-                  WHERE Number={0}";
-                int res = DBUtl.ExecSQL(update, mn.Number, mn.RevisedDelDate);
+                    SET RevisedDelDate='{0:yyyy-MM-dd}'
+                  WHERE Number={1}";
+                int res = DBUtl.ExecSQL(update, mn.RevisedDelDate, mn.Number);
                 if (res == 1)
                 {
                     TempData["Message"] = "PO Updated";

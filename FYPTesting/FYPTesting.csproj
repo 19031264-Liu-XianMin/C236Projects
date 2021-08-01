@@ -61,7 +61,6 @@
 	  <None Include="Views\Account\Members.cshtml" />
 	  <None Include="Views\Account\UserCreate.cshtml" />
 	  <None Include="Views\Menu\AddPO.cshtml" />
-	  <None Include="Views\Menu\AdminView.cshtml" />
 	  <None Include="Views\Menu\EditPO.cshtml" />
 	  <None Include="Views\Menu\ListMenu.cshtml" />
 	  <None Include="Views\Menu\Login.cshtml" />
