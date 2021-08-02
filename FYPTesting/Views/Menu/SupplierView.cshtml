@@ -46,6 +46,7 @@
             <th scope="col">UOM</th>
             <th scope="col">Unit Price</th>
             <th scope="col">OrigAmt</th>
+          
 
             @if (User.IsInRole("supplier"))
             {
@@ -57,40 +58,46 @@
     <tbody>
         @foreach (Menu row in Model)
         {
-            <tr style="background-color:grey;color:aquamarine">
-                <td>@row.Number</td>
+        <tr style="background-color:grey;color:aquamarine">
+            <td>@row.Number</td>
 
-                <td>@row.PONo</td>
-                <td>@String.Format("{0:dd-MM-yyyy}", row.OrderDate)</td>
-                <td>@row.PaymentTerms</td>
+            <td>@row.PONo</td>
+            <td>@String.Format("{0:dd-MM-yyyy}", row.OrderDate)</td>
+            <td>@row.PaymentTerms</td>
 
-                <td>@row.Purchaser</td>
+            <td>@row.Purchaser</td>
 
-                <td>@row.TSHPONO</td>
-                <td>@row.PartNo</td>
-                <td>@row.Description</td>
-                <td>@String.Format("{0:dd-MM-yyyy}", row.DueDate)</td>
-                <td>@String.Format("{0:dd-MM-yyyy}", row.RevisedDelDate)</td>
-                <td>@row.Currency</td>
-                <td>@row.Quantity</td>
-                <td>@row.UOM</td>
-                <td>@row.UnitPrice</td>
-                <td>@String.Format("{0:f}", row.OrigAmt)</td>
-                <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
+            <td>@row.TSHPONO</td>
+            <td>@row.PartNo</td>
+            <td>@row.Description</td>
+            <td>@String.Format("{0:dd-MM-yyyy}", row.DueDate)</td>
+            <td>@String.Format("{0:dd-MM-yyyy}", row.RevisedDelDate)</td>
+            <td>@row.Currency</td>
+            <td>@row.Quantity</td>
+            <td>@row.UOM</td>
+            <td>@row.UnitPrice</td>
+            <td>@String.Format("{0:f}", row.OrigAmt)</td>
+            <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
 
-                @if (User.IsInRole("supplier"))
-                {
-                    <td>
-                        <a asp-controller="Menu"
-                           asp-action="Confirmation"
-                           asp-route-id="@row.Number">Status</a>
-                        |
-                        <a asp-controller="Menu"
-                           asp-action="PurchaseOrder"
-                           asp-route-id="@row.Number">View</a>
-                    </td>
-                }
-            </tr>
+
+
+            @if (User.IsInRole("supplier"))
+            {
+                <td>
+                    <a asp-controller="Menu"
+                       asp-action="Confirmation"
+                       asp-route-id="@row.Number">Status</a>
+                    |
+                    <a asp-controller="Menu"
+                       asp-action="PurchaseOrder"
+                       asp-route-id="@row.Number">View</a>
+                    |
+                    <a asp-controller="Menu"
+                       asp-action="SendEmail"
+                       asp-route-id="@row.Number">Email</a>
+                </td>
+            }
+        </tr>
         }
     </tbody>
 </table>

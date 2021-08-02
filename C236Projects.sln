@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L13", "L13\L13.csproj", "{0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FYP", "FYP\FYP.csproj", "{E6A9E6F1-D5A7-488B-9D57-F3C1A2B9C64E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FYPTesting", "FYPTesting\FYPTesting.csproj", "{D2E7A350-3E3F-41BC-BCEE-1C4792ACA427}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FYPTesting", "FYPTesting\FYPTesting.csproj", "{D2E7A350-3E3F-41BC-BCEE-1C4792ACA427}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
