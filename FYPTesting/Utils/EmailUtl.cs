@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Net.Mail;
 
+
 public static class EmailUtl
 {
    private static IConfiguration config =
@@ -12,12 +13,13 @@ public static class EmailUtl
          .Build()
          .GetSection("EmailSettings");
 
-   private static string EMAIL_ID = config.GetValue<String>("LiveID");
-   private static string EMAIL_PW = config.GetValue<String>("LivePW");
+   private static string EMAIL_ID = config.GetValue<String>("Username");
+   private static string EMAIL_PW = config.GetValue<String>("Password");
 
-   // Using Microsoft's LIVE
-   private static string HOST = "smtp.live.com";
-   private static int PORT = 25;
+   // Using Google's LIVE
+   private static string HOST = "smtp.google.com";
+   private static int PORT = 587;
+   
 
    public static bool SendEmail(string recipient,
                                 string subject, string msg,
