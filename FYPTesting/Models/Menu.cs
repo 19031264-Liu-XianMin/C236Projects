@@ -80,7 +80,5 @@ namespace FYPTesting.Models
         [Range(0.00, 9999999.00, ErrorMessage = "0-9999999 marks")]
         public double OrigAmt { get; set; }
 
-      
-
     }
 }

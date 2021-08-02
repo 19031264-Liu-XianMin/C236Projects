@@ -45,6 +45,10 @@
             <th scope="col">UOM</th>
             <th scope="col">Unit Price</th>
             <th scope="col">OrigAmt</th>
+            @if (User.IsInRole("salesman"))
+            {
+                <th scope="col">Action</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -70,6 +74,15 @@
                 <td>@row.UnitPrice</td>
                 <td>@String.Format("{0:f}", row.OrigAmt)</td>
                 <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
+
+                @if (User.IsInRole("salesman"))
+                {
+                    <td>
+                        <a asp-controller="Menu"
+                           asp-action="PurchaseOrder"
+                           asp-route-id="@row.Number">Details</a>
+                    </td>
+                }
 
             </tr>
         }

@@ -16,6 +16,14 @@
 @model List<Menu>;
 
 <h2>Admin View</h2>
+<!--
+    @using (Html.BeginForm("UploadFile", "Menu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <button type="submit">Upload</button>
+}
+    -->
+
 
 @if (TempData["Message"] != null)
 {
@@ -88,17 +96,15 @@
                         |
                         <a asp-controller="Menu"
                            asp-action="PurchaseOrder"
-                           asp-route-id="@row.Number">View</a>
+                           asp-route-id="@row.Number">Details</a>
 
-                        |         
+                        |
                         <a asp-controller="Account"
-                        asp-action="EditPOAdmin"
-                        asp-route-id="@row.Number">Edit</a>
+                           asp-action="EditPOAdmin"
+                           asp-route-id="@row.Number">Edit</a>
 
 
                     </td>
-
-
                 }
 
             </tr>

@@ -79,25 +79,19 @@
             <td>@String.Format("{0:f}", row.OrigAmt)</td>
             <!-- <td>@String.Format("{0:c}", row.OrigAmt)</td> -->
 
-
-
-            @if (User.IsInRole("supplier"))
-            {
-                <td>
-                    <a asp-controller="Menu"
-                       asp-action="Confirmation"
-                       asp-route-id="@row.Number">Status</a>
-                    |
-                    <a asp-controller="Menu"
-                       asp-action="PurchaseOrder"
-                       asp-route-id="@row.Number">View</a>
-                    |
-                    <a asp-controller="Menu"
-                       asp-action="SendEmail"
-                       asp-route-id="@row.Number">Email</a>
-                </td>
-            }
-        </tr>
+                @if (User.IsInRole("supplier"))
+                {
+                    <td>
+                        <a asp-controller="Menu"
+                           asp-action="Confirmation"
+                           asp-route-id="@row.Number">Status</a>
+                        |
+                        <a asp-controller="Menu"
+                           asp-action="PurchaseOrder"
+                           asp-route-id="@row.Number">View</a>
+                    </td>
+                }
+            </tr>
         }
     </tbody>
 </table>
